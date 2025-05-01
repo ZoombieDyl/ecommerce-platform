@@ -1,70 +1,204 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 🧪 Potion Seller's Emporium
 
-## Available Scripts
+**E-Commerce Project :: Dylan P.**  
+CS 3365 – Software Engineering  
+Spring 2025
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📦 Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Potion Seller's Emporium is a full-stack e-commerce platform with a fantasy theme where users can browse and buy magical potions, manage a shopping cart, place secure orders, and leave reviews. Designed with clean UI principles and full JWT-based authentication, the application supports complete order lifecycle management and user-based personalization.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧰 Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend:
+- React.js (v19+)
+- React Router DOM (v7+)
+- React Context API
+- React Toastify (alerts)
+- Custom CSS (parchment-themed aesthetic)
 
-### `npm run build`
+### Backend:
+- Node.js
+- Express.js
+- MongoDB via Mongoose
+- JWT for auth
+- RESTful API
+- Swagger UI for API docs
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Testing:
+- Jest + Supertest for API routes
+- Mocha + Chai for unit tests
+- Cypress for E2E testing (optional)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Features
 
-### `npm run eject`
+- 🧪 Dynamic product catalog with gallery + list view  
+- 🔎 Search, category filter, and sort by rating/price  
+- 🛒 Full cart system (add, remove, update quantities)  
+- 🧾 Checkout workflow with tax and real-time currency conversion  
+- 🔐 Secure authentication with login/register/logout  
+- 🧠 Auth-based content rendering (e.g. checkout & reviews gated)  
+- ⭐ Live review system with star ratings  
+- 📜 Clean parchment-inspired responsive design  
+- 🔄 Persistent cart and user session via `localStorage`  
+- 🔌 REST API with Swagger docs at `/docs`  
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```
+ecommerce-platform/
+├── backend/              # Express API
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── tests/
+│   ├── utils/
+│   ├── server.js
+│   └── .env (excluded)
+├── src/                  # React app
+│   ├── components/
+│   ├── context/
+│   ├── pages/
+│   ├── App.js
+│   └── index.js
+├── public/
+├── .env                 # (excluded from repo)
+├── .gitignore
+├── README.md
+└── package.json
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🔐 API Overview
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Endpoint             | Method | Auth? | Description                     |
+|----------------------|--------|-------|---------------------------------|
+| `/api/products`      | GET    | No    | Get all products                |
+| `/api/products`      | POST   | ✅    | Create a new product            |
+| `/api/products/:id`  | PUT    | ✅    | Update a product                |
+| `/api/products/:id`  | DELETE | ✅    | Delete a product                |
+| `/api/orders`        | GET    | ✅    | Get current user's orders       |
+| `/api/orders`        | POST   | ✅    | Place a new order               |
+| `/api/auth/register` | POST   | No    | Create new user account         |
+| `/api/auth/login`    | POST   | No    | Authenticate and return token   |
+| `/api/reviews/:id`   | GET    | No    | Get reviews for a product       |
+| `/api/reviews`       | POST   | ✅    | Submit review                   |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+💡 Swagger UI available at: `https://your-backend-url.onrender.com/docs`
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ⚙️ Installation & Development
 
-### Analyzing the Bundle Size
+### Backend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+cd backend
+npm install
+npm run dev
+```
 
-### Making a Progressive Web App
+### Frontend Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+cd src
+npm install
+npm start
+```
 
-### Advanced Configuration
+> Frontend dev server runs on `localhost:3000`, proxying API to `localhost:5000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🌍 Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Backend (Render.com)
 
-### `npm run build` fails to minify
+1. Create new Render Web Service  
+2. Root directory: `/backend`  
+3. Build command: `npm install`  
+4. Start command: `node server.js`  
+5. Environment variables:  
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+MONGO_URI=<your-mongodb-uri>
+JWT_SECRET=yourSuperSecret
+PORT=5000
+```
+
+### Frontend (Vercel)
+
+1. Deploy from GitHub  
+2. Output directory: `build`  
+3. Build command: `npm run build`  
+4. Environment variable:  
+
+```
+REACT_APP_API_URL=https://your-backend-url.onrender.com
+```
+
+---
+
+## 🔧 Environment Configuration
+
+### `/backend/.env`
+
+```env
+PORT=5000
+MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/potions
+JWT_SECRET=supersecretkey
+```
+
+### `/src/.env`
+
+```env
+REACT_APP_API_URL=https://your-backend-url.onrender.com
+```
+
+---
+
+## 🧪 Testing
+
+```bash
+npm run test
+```
+
+- Unit tests for products and orders  
+- Integration auth and review flow  
+- Basic coverage reports with Jest/Mocha  
+
+---
+
+## 🧠 Architecture Notes
+
+- Cart state is stored via `CartContext` (React Context API)  
+- User auth persists using `localStorage`  
+- Backend is modular: routes/controllers/models separated  
+- Middleware handles JWT token verification  
+- Reviews tied to products by MongoDB population  
+
+---
+
+## 📌 Footer Branding
+
+> Present on every page:  
+**E-Commerce Project :: Dylan P.**
+
+---
+
+## ✅ Final Notes
+
+- Designed for grading and deployment  
+- Modular and scalable  
+- Clean UI with fantasy-shop theme  
+- Built entirely from scratch using modern stack  
