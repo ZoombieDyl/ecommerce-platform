@@ -11,11 +11,14 @@ const ProductList = () => {
   const [viewMode, setViewMode] = useState('gallery');
 
   useEffect(() => {
-    fetch('/api/products')
+    const API_BASE = process.env.REACT_APP_API_URL;
+  
+    fetch(`${API_BASE}/api/products`)
       .then((res) => res.json())
       .then((data) => setProducts(data))
       .catch((err) => console.error('Failed to fetch products:', err));
   }, []);
+  
 
   const filteredProducts = products
     .filter((product) => {
