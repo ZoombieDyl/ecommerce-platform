@@ -144,7 +144,7 @@ PORT=5000
 4. Environment variable:  
 
 ```
-REACT_APP_API_URL=https://your-backend-url.onrender.com
+REACT_APP_API_URL=https://ecommerce-platform-sm1k.onrender.com
 ```
 
 ---
@@ -155,14 +155,14 @@ REACT_APP_API_URL=https://your-backend-url.onrender.com
 
 ```env
 PORT=5000
-MONGO_URI=mongodb+srv://<user>:<pass>@cluster.mongodb.net/potions
-JWT_SECRET=supersecretkey
+MONGO_URI=secret
+JWT_SECRET=secret
 ```
 
 ### `/src/.env`
 
 ```env
-REACT_APP_API_URL=https://your-backend-url.onrender.com
+REACT_APP_API_URL=https://ecommerce-platform-five.vercel.app
 ```
 
 ---
@@ -193,12 +193,3 @@ npm run test
 
 > Present on every page:  
 **E-Commerce Project :: Dylan P.**
-
----
-
-## ✅ Final Notes
-
-- Designed for grading and deployment  
-- Modular and scalable  
-- Clean UI with fantasy-shop theme  
-- Built entirely from scratch using modern stack  
