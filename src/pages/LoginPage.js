@@ -9,11 +9,12 @@ const LoginPage = () => {
   const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (login(email, password)) {
+    const success = await login(email, password);
+    if (success) {
       toast.success('Login successful');
-      navigate('/profile');
+      navigate('/profile'); // or navigate(-1) to return to previous
     } else {
       toast.error('Invalid credentials');
     }
@@ -40,7 +41,10 @@ const LoginPage = () => {
         <button type="submit">Login</button>
       </form>
       <p>
-        Don't have an account? <span onClick={() => navigate('/register')} style={{cursor: 'pointer', color: 'blue'}}>Register here</span>
+        Don't have an account?{' '}
+        <span onClick={() => navigate('/register')} style={{ cursor: 'pointer', color: 'blue' }}>
+          Register here
+        </span>
       </p>
     </div>
   );
